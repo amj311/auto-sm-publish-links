@@ -1,0 +1,19 @@
+{
+  "name": "auto-sm-publish-links",
+  "version": "1.0.0",
+  "description": "Small tool to generate publish links for various SM networks given a sigle publication.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amj311/auto-sm-publish-links.git"
+  },
+  "author": "amj311",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amj311/auto-sm-publish-links/issues"
+  },
+  "homepage": "https://github.com/amj311/auto-sm-publish-links#readme"
+}
