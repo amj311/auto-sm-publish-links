@@ -10,9 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -27,7 +25,7 @@
 <body>
     <div id="app" class="container" style="max-width:80rem">
         <div class="form-group">
-            <label for="comment">Publication:</label>
+            <label for="comment">Write a message:</label>
             <textarea v-model="publication" class="form-control" rows="5" id="publication" style="max-width: 100%; min-width: 100%;"></textarea>
 
             <p class="form-text text-muted" align="right">
@@ -35,8 +33,10 @@
             </p>
         </div>
 
-
-        <p>{{publication}}</p>
+        <div class="network-panel" v-for="network in networks" :id="'panel_'+network.displayName">
+            <a name="" id="" class="btn btn-primary" :style="{backgroundColor:network.brandColor}" target="blank" :href="network.publishURL+publicationURI" role="button"><i :class="network.brandFaCode" aria-hidden="true"></i>{{network.displayName}}</a>
+            Link: {{network.publishURL+publicationURI}}
+        </div>
     </div>
 </body>
 
