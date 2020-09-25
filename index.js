@@ -18,7 +18,7 @@ const app = new Vue({
             //     brandFaCode: "fa fa-facebook",
             // },
         ],
-        publication: "Write your post and use the links below to send it anywhere!\n\nMade #with 🥑 by @amj311 \n\nSafe characters: !@#$^%&*()_+-={}|[]\\:\";',./<>?`~",
+        publication: "Write your post and use the links below to send it anywhere!\n\nMade with 🥑 by @amj311",
     },
 
     methods: {
