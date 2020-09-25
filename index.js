@@ -23,15 +23,31 @@ const app = new Vue({
 
     methods: {
         copyNetworkLink(name) {
-            linktext = this.$refs['link_'+name][0];
+            linktext = this.$refs['link_' + name][0];
             linktext.select();
             linktext.setSelectionRange(0, 99999); /*For mobile devices*/
 
             /* Copy the text inside the text field */
             document.execCommand("copy");
-          
+
             /* Alert the copied text */
             alert("Copied the text: " + linktext.value);
+        },
+
+        fbPost() {
+            var data =
+            {
+                method: 'stream.publish',
+                message: "Posted using FB.ui and picture.",
+                display: 'iframe',
+                caption: "Caption",
+                name: "Name",
+                picture: 'https://www.permadi.com/tutorial/permadi.png',
+                link: "https://www.permadi.com/",  // Go here if user click the picture
+                description: "Description field",
+                actions: [{ name: 'action_links text!', link: 'https://www.permadi.com' }],
+            }
+            FB.ui(data, onPostToWallCompleted);
         }
     },
 
@@ -39,8 +55,8 @@ const app = new Vue({
         publicationURI() {
             let url = encodeURI(this.publication)
             return url
-                .replaceAll("#","%23",)
-                .replaceAll("&","%26")
+                .replaceAll("#", "%23",)
+                .replaceAll("&", "%26")
         }
     }
 })
