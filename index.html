@@ -34,18 +34,22 @@
             </p>
 
             <label for="encoded">Encoded message:</label>
-            <textarea :value="publicationURI" readonly maxlength="" class="form-control" rows="5" id="publication"></textarea>
+            <textarea :value="publicationURI" readonly maxlength="" class="form-control" rows="5"></textarea>
 
             <br/>
             <label for="publication">Publish your message:</label>
             <div v-for="network in networks" class="network-panel" :class="{disabled: publication.length>network.maxChar}" :id="'panel_'+network.displayName">
-                <a name="" id="" class="btn btn-primary" :style="{backgroundColor:network.brandColor}" target="blank" :href="network.publishURL+publicationURI" role="button"><i :class="network.brandFaCode" aria-hidden="true"></i>{{network.displayName}}</a>
-                <div class="input-group">
-                    <input :ref="'link_'+network.displayName" type="text" class="form-control" :value="network.publishURL+publicationURI" onClick="this.select();" readonly>
-                    <span class="input-group-btn">
-                    <button class="btn btn-default" type="button" @click="copyNetworkLink(network.displayName)"><i class="fa fa-copy"></i></button>
-                    </span>
+                <div class="panel-row">
+                    <a name="" id="" class="btn btn-primary" :style="{backgroundColor:network.brandColor}" target="blank" :href="network.publishURL+publicationURI" role="button"><i :class="network.brandFaCode" aria-hidden="true"></i>{{network.displayName}}</a>
+                    <div class="input-group">
+                        <input :ref="'link_'+network.displayName" type="text" class="form-control" :value="network.publishURL+publicationURI" onClick="this.select();" readonly>
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" @click="copyNetworkLink(network.displayName)"><i class="fa fa-copy"></i></button>
+                        </span>
+                    </div>
                 </div>
+                <p class="overflow-error">Too many characters!</p>
+                
             </div>
         </div>
     </div>

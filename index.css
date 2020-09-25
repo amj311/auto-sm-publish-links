@@ -7,12 +7,15 @@ textarea {
     max-width: 100%;
     min-width: 100%;
 }
+#publication {
+    border-width: 3px !important;
+}
 
-.network-panel {
+.network-panel .panel-row {
     display: flex;
     justify-content: space-between;
 }
-.network-panel.disabled {
+.network-panel.disabled .panel-row {
     filter: grayscale(1) opacity(.8);
 }
 
@@ -25,4 +28,14 @@ textarea {
 }
 .network-panel a.btn i {
     margin-right: .5em;
+}
+
+.network-panel .overflow-error {
+    color: red;
+    font-weight: bold;
+    margin: .5em 0;
+    display: none;
+}
+.network-panel.disabled .overflow-error {
+    display: block;
 }
