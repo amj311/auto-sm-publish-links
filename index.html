@@ -11,6 +11,7 @@
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="index.css">
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -23,19 +24,29 @@
 </head>
 
 <body>
-    <div id="app" class="container" style="max-width:80rem">
+    <div id="app" class="container">
         <div class="form-group">
-            <label for="comment">Write a message:</label>
-            <textarea v-model="publication" class="form-control" rows="5" id="publication" style="max-width: 100%; min-width: 100%;"></textarea>
+            <label for="publication">Write a message:</label>
+            <textarea v-model="publication" maxlength="" class="form-control" rows="5" id="publication"></textarea>
 
             <p class="form-text text-muted" align="right">
                 {{publication.length}}
             </p>
-        </div>
 
-        <div class="network-panel" v-for="network in networks" :id="'panel_'+network.displayName">
-            <a name="" id="" class="btn btn-primary" :style="{backgroundColor:network.brandColor}" target="blank" :href="network.publishURL+publicationURI" role="button"><i :class="network.brandFaCode" aria-hidden="true"></i>{{network.displayName}}</a>
-            Link: {{network.publishURL+publicationURI}}
+            <label for="encoded">Encoded message:</label>
+            <textarea :value="publicationURI" readonly maxlength="" class="form-control" rows="5" id="publication"></textarea>
+
+            <br/>
+            <label for="publication">Publish your message:</label>
+            <div v-for="network in networks" class="network-panel" :class="{disabled: publication.length>network.maxChar}" :id="'panel_'+network.displayName">
+                <a name="" id="" class="btn btn-primary" :style="{backgroundColor:network.brandColor}" target="blank" :href="network.publishURL+publicationURI" role="button"><i :class="network.brandFaCode" aria-hidden="true"></i>{{network.displayName}}</a>
+                <div class="input-group">
+                    <input :ref="'link_'+network.displayName" type="text" class="form-control" :value="network.publishURL+publicationURI" onClick="this.select();" readonly>
+                    <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" @click="copyNetworkLink(network.displayName)"><i class="fa fa-copy"></i></button>
+                    </span>
+                </div>
+            </div>
         </div>
     </div>
 </body>

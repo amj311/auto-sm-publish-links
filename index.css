@@ -1,0 +1,28 @@
+#app {
+    padding:2rem;
+    max-width:80rem
+}
+
+textarea {
+    max-width: 100%;
+    min-width: 100%;
+}
+
+.network-panel {
+    display: flex;
+    justify-content: space-between;
+}
+.network-panel.disabled {
+    filter: grayscale(1) opacity(.8);
+}
+
+.network-panel .input-group {
+    flex-grow: 1;
+}
+
+.network-panel a.btn {
+    margin-right: .5em;
+}
+.network-panel a.btn i {
+    margin-right: .5em;
+}
