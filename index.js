@@ -38,16 +38,16 @@ const app = new Vue({
             var data =
             {
                 method: 'stream.publish',
-                message: "Posted using FB.ui and picture.",
+                message: "Posted using FB.api",
                 display: 'iframe',
                 caption: "Caption",
                 name: "Name",
-                picture: 'https://www.permadi.com/tutorial/permadi.png',
-                link: "https://www.permadi.com/",  // Go here if user click the picture
-                description: "Description field",
-                actions: [{ name: 'action_links text!', link: 'https://www.permadi.com' }],
+                // picture: 'https://www.permadi.com/permadi.png',
+                // link: "https://www.permadi.com/",  // Go here if user click the picture
+                // description: "Description field",
+                // actions: [{ name: 'action_links text!', link: 'https://www.permadi.com' }],
             }
-            FB.ui(data, onPostToWallCompleted);
+            FB.ui(data, () => console.log("Did it!"));
         }
     },
 

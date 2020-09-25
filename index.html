@@ -20,6 +20,17 @@
         crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId            : '225668845492583',
+            autoLogAppEvents : true,
+            xfbml            : true,
+            version          : 'v8.0'
+          });
+        };
+      </script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
     <script src="index.js" defer></script>
 </head>
 
