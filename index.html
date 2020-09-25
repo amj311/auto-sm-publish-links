@@ -24,33 +24,42 @@
 </head>
 
 <body>
-    <div id="app" class="container">
-        <div class="form-group">
-            <label for="publication">Write a message:</label>
-            <textarea v-model="publication" maxlength="" class="form-control" rows="5" id="publication"></textarea>
+    <div id="wrapper" >
 
-            <p class="form-text text-muted" align="right">
-                {{publication.length}}
-            </p>
-
-            <label for="encoded">Encoded message:</label>
-            <textarea :value="publicationURI" readonly maxlength="" class="form-control" rows="5"></textarea>
-
-            <br/>
-            <label for="publication">Publish your message:</label>
-            <div v-for="network in networks" class="network-panel" :class="{disabled: publication.length>network.maxChar}" :id="'panel_'+network.displayName">
-                <div class="panel-row">
-                    <a name="" id="" class="btn btn-primary" :style="{backgroundColor:network.brandColor}" target="blank" :href="network.publishURL+publicationURI" role="button"><i :class="network.brandFaCode" aria-hidden="true"></i>{{network.displayName}}</a>
-                    <div class="input-group">
-                        <input :ref="'link_'+network.displayName" type="text" class="form-control" :value="network.publishURL+publicationURI" onClick="this.select();" readonly>
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button" @click="copyNetworkLink(network.displayName)"><i class="fa fa-copy"></i></button>
-                        </span>
-                    </div>
-                </div>
-                <p class="overflow-error">Too many characters!</p>
-            </div>
+        <div id="header">
+            <h2><i class="fa fa-share-alt-square" aria-hidden="true"></i></h2>
+            <h1>Publish Link Generator</h1>
+            <span>Created by Arthur Judd</span>
         </div>
+
+        <div id="app">
+            <div class="form-group">
+                <label for="publication">Write a message:</label>
+                <textarea v-model="publication" maxlength="" class="form-control" rows="5" id="publication"></textarea>
+    
+                <p class="form-text text-muted" align="right">
+                    {{publication.length}}
+                </p>
+    
+                <label for="encoded">Encoded message:</label>
+                <textarea :value="publicationURI" readonly maxlength="" class="form-control" rows="5"></textarea>
+    
+                <br/>
+                <label for="publication">Publish your message:</label>
+                <div v-for="network in networks" class="network-panel" :class="{disabled: publication.length>network.maxChar}" :id="'panel_'+network.displayName">
+                    <div class="panel-row">
+                        <a name="" id="" class="btn btn-primary" :style="{backgroundColor:network.brandColor}" target="blank" :href="network.publishURL+publicationURI" role="button"><i :class="network.brandFaCode" aria-hidden="true"></i>{{network.displayName}}</a>
+                        <div class="input-group">
+                            <input :ref="'link_'+network.displayName" type="text" class="form-control" :value="network.publishURL+publicationURI" onClick="this.select();" readonly>
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button" @click="copyNetworkLink(network.displayName)"><i class="fa fa-copy"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                    <p class="overflow-error">Too many characters!</p>
+                </div>
+            </div>
+        </div>    
     </div>
 </body>
 
