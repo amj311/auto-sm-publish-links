@@ -43,7 +43,7 @@ const app = new Vue({
                 caption: "Caption",
                 name: "Name",
                 // picture: 'https://www.permadi.com/permadi.png',
-                // link: "https://www.permadi.com/",  // Go here if user click the picture
+                href: "https://www.permadi.com/",  // Go here if user click the picture
                 // description: "Description field",
                 // actions: [{ name: 'action_links text!', link: 'https://www.permadi.com' }],
             }
